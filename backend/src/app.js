@@ -1,7 +1,5 @@
 import express from "express";
 import cors from "cors";
-import multer from "multer";
-import { v4 as uuidv4 } from "uuid";
 import routes from "./routes/index.js";
 
 const app = express();
@@ -13,6 +11,8 @@ app.use(
 );
 
 app.use(express.json());
+
+app.use("/uploads", express.static("../uploads"));
 
 app.use("/api", routes);
 
